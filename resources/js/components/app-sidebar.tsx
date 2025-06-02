@@ -4,9 +4,11 @@ import { NavUser } from '@/components/nav-user';
 import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from '@/components/ui/sidebar';
 import { type NavItem } from '@/types';
 import { Link } from '@inertiajs/react';
-import { BookOpen, Folder, HomeIcon, LayoutGrid, LogOutIcon, PowerSquareIcon, SignalIcon } from 'lucide-react';
+import { BookOpen, Folder, HomeIcon, LayoutGrid, LogOutIcon, TagIcon } from 'lucide-react';
 import AppLogo from './app-logo';
 import axios from 'axios';
+import { PlusIcon } from '@heroicons/react/24/solid';
+import { NavPost } from './foodis/posts/nav-post';
 const axiosget=axios.get('/');
 
 const mainNavItems: NavItem[] = [
@@ -25,17 +27,19 @@ const mainNavItems: NavItem[] = [
 
     },
     {
-        title: 'PostsCreate',
-        href:'/posts/create',
-        icon: PowerSquareIcon,
-
-    },
-      {
         title: 'Register',
         href:'/register',
         icon: LogOutIcon,
 
     },
+    
+    // {
+    //     title: ' Post settings',
+    //     href:'/posts/categories',
+    //     icon: TagIcon,
+
+    // },
+      
    
 ];
 
@@ -58,6 +62,9 @@ export function AppSidebar() {
 
             <SidebarContent>
                 <NavMain items={mainNavItems} />
+                
+                <NavPost/>
+               
             </SidebarContent>
 
             <SidebarFooter>

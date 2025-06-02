@@ -10,8 +10,8 @@ const CreatePosts = ({ name, value, type,label }) => {
     const [chosenFiles, setChosenFiles] = useState([]);
         const [newMessage, setNewMessage] = useState("");
         const [newImage, setNewImage] = useState("");
-            const [inputEerrorMessage, setInputEerrorMessage] = useState("");
-         const [uploadProgress, setUploadProgress] = useState(0);
+        const [inputEerrorMessage, setInputEerrorMessage] = useState("");
+        const [uploadProgress, setUploadProgress] = useState(0);
 
 
     // const onFileChange = (ev) => {

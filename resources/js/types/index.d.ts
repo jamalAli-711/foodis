@@ -30,7 +30,38 @@ export interface SharedData {
     sidebarOpen: boolean;
     [key: string]: unknown;
 }
+interface Recipe {
+    id: number;
+    title: string;
+    description: string;
+    featured_image: string;
+    is_featured: boolean;
+    category_id: number;
+    height?: number;
+    category: {
+        name: string;
+    };
+}
 
+interface Category {
+    id: number;
+    name: string;
+    description: string;
+    image?: string;
+    icon?: string;
+}
+
+export interface CategorysPageProps {
+    recipes: {
+        data: Recipe[];
+        links: Array<{
+            url: string | null;
+            label: string;
+            active: boolean;
+        }>;
+    };
+    categorys: Category[];
+}
 export interface User {
     id: number;
     name: string;

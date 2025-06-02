@@ -42,5 +42,14 @@ class HomeController extends Controller
 
 
     }
+ public function store()
+    {
+       dd(545);
+      
+            
+    return Inertia::render('posts/create');
+
+
+    }
 
 }

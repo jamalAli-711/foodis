@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PostController;
 use App\Models\Blog;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -12,8 +13,10 @@ use Inertia\Inertia;
 // })->name('home');
 Route::get('/',[HomeController::class,'index'])->name('home');
 Route::get('/posts/create',[HomeController::class,'PostsCreate'])->name('PostsCreate');
+Route::post('/posts', [PostController::class, 'store'])->name('posts.store');
+
 Route::get('/blogs/{blog:slug}', function (Blog $blog) {
-          
+
     return Inertia::render('blog-show', [
     'blog' =>$blog,
 ]);})->name('blogs.show');

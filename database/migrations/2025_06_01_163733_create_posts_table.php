@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
-             $table->string('title')->nullable();
+            $table->string('title')->nullable();
             $table->string('slug')->unique();
             $table->longText('content')->nullable();
             $table->string('featured_image')->nullable();
@@ -24,7 +24,7 @@ return new class extends Migration
             $table->longText('excerpt')->nullable();
             $table->string('meta_title')->nullable();
             $table->text('meta_description')->nullable();
-             $table->unsignedBigInteger('views')->default(0)->after('meta_description');
+            $table->unsignedBigInteger('views')->default(0);
             $table->timestamps();
         });
     }

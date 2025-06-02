@@ -21,26 +21,26 @@ return (
                 </td>
             </tr>
             <tr>
-                <td class="py-4 px-6 border-b border-gray-200">Jane Doe</td>
-                <td class="py-4 px-6 border-b border-gray-200 truncate">janedoe@gmail.com</td>
-                <td class="py-4 px-6 border-b border-gray-200">555-555-5555</td>
-                <td class="py-4 px-6 border-b border-gray-200">
+                <td ="py-4 px-6 border-b border-gray-200">Jane Doe</td>
+                <td ="py-4 px-6 border-b border-gray-200 truncate">janedoe@gmail.com</td>
+                <td ="py-4 px-6 border-b border-gray-200">555-555-5555</td>
+                <td ="py-4 px-6 border-b border-gray-200">
                     <span class="bg-red-500 text-white py-1 px-2 rounded-full text-xs">Inactive</span>
                 </td>
             </tr>
             <tr>
-                <td class="py-4 px-6 border-b border-gray-200">Jane Doe</td>
-                <td class="py-4 px-6 border-b border-gray-200 truncate">janedoe@gmail.com</td>
-                <td class="py-4 px-6 border-b border-gray-200">555-555-5555</td>
-                <td class="py-4 px-6 border-b border-gray-200">
+                <td className="py-4 px-6 border-b border-gray-200">Jane Doe</td>
+                <td className="py-4 px-6 border-b border-gray-200 truncate">janedoe@gmail.com</td>
+                <td className="py-4 px-6 border-b border-gray-200">555-555-5555</td>
+                <td className="py-4 px-6 border-b border-gray-200">
                     <span class="bg-red-500 text-white py-1 px-2 rounded-full text-xs">Inactive</span>
                 </td>
             </tr>
             <tr>
-                <td class="py-4 px-6 border-b border-gray-200">Jane Doe</td>
-                <td class="py-4 px-6 border-b border-gray-200 truncate">janedoe@gmail.com</td>
-                <td class="py-4 px-6 border-b border-gray-200">555-555-5555</td>
-                <td class="py-4 px-6 border-b border-gray-200">
+                <td className="py-4 px-6 border-b border-gray-200">Jane Doe</td>
+                <td className="py-4 px-6 border-b border-gray-200 truncate">janedoe@gmail.com</td>
+                <td className="py-4 px-6 border-b border-gray-200">555-555-5555</td>
+                <td className="py-4 px-6 border-b border-gray-200">
                     <span class="bg-red-500 text-white py-1 px-2 rounded-full text-xs">Inactive</span>
                 </td>
             </tr>

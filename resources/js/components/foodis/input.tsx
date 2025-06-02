@@ -1,16 +1,16 @@
 import { Description, Field, Input, Label } from '@headlessui/react';
 import clsx from 'clsx';
 
-export default function InputT({name,value,type ,label,onSend,onChange}) {
+export default function InputT({name,value,type ,label,onChange}) {
   return (
     <div className="w-full max-w-md px-4">
       <Field>
         <Label className="text-sm/6 font-medium ">{label}</Label>
-        <Description className="text-sm/6 ">Use your real title so people will recognize you.</Description>
+{/*         <Description className="text-sm/6 ">Use your real title so people will recognize you.</Description> */}
         <Input
         type={type}
         name={name}
-        onSend={onSend}
+
         onChange={onChange}
         value={value}
           className={clsx(

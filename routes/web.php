@@ -2,9 +2,12 @@
 
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Post_categorieController;
+use App\Http\Controllers\PostController;
 use App\Models\Blog;
+use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -12,10 +15,14 @@ use Inertia\Inertia;
 //     return Inertia::render('home');
 // })->name('home');
 Route::get('/',[HomeController::class,'index'])->name('home');
-Route::get('/posts/create',[HomeController::class,'PostsCreate'])->name('Posts.Create');
+Route::get('/posts/create',[HomeController::class,'PostsCreate'])->name('posts.create');
 Route::post('/posts/store',[HomeController::class,'store'])->name('posts.store');
 Route::get('/posts/categories',[Post_categorieController::class,'create'])->name('posts.categories');
 Route::post('/posts/categories-store',[Post_categorieController::class,'store'])->name('posts.categories-store');
+Route::get('/posts/create',[HomeController::class,'PostsCreate'])->name('PostsCreate');
+Route::post('/posts', [PostController::class, 'store'])->name('posts.store');
+Route::get('/categories',[CategoryController::class,'index'])->name('categories');
+
 Route::get('/blogs/{blog:slug}', function (Blog $blog) {
           
     return Inertia::render('blog-show', [

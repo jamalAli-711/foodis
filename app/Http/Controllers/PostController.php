@@ -10,17 +10,28 @@ class PostController extends Controller
 {
     public function store(Request $request)
     {
-        dd($request->all());
         $validated = $request->validate([
             'title' => 'required|string|max:255',
             'slug' => 'required|string|max:255|unique:posts',
             'content' => 'required|string',
+            'category_id' => 'required|exists:categories,id',
+            'featured_image' => 'nullable|image|max:2048',
+            'status' => 'required|in:draft,published,archived',
+            'published_at' => 'nullable|date',
+            'excerpt' => 'nullable|string|max:300',
+            'meta_title' => 'nullable|string|max:60',
+            'meta_description' => 'nullable|string|max:160',
+            'user_id' => 'required|exists:users,id',
         ]);
 
-        Post::create($validated);
+        if ($request->hasFile('featured_image')) {
+            $validated['featured_image'] = $request->file('featured_image')->store('posts', 'public');
+        }
 
-        return Inertia::render('posts/create')->with('success', 'Post created successfully!');
-    }
+        Post::create($validated);
+        return Inertia::render('posts/create', [
+            'success' => 'تم إنشاء المنشور بنجاح!'
+        ]);    }
     //
     public function show($slug)
 {

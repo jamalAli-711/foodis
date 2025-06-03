@@ -2,9 +2,11 @@
 
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use App\Models\Blog;
+use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -14,6 +16,7 @@ use Inertia\Inertia;
 Route::get('/',[HomeController::class,'index'])->name('home');
 Route::get('/posts/create',[HomeController::class,'PostsCreate'])->name('PostsCreate');
 Route::post('/posts', [PostController::class, 'store'])->name('posts.store');
+Route::get('/categories',[CategoryController::class,'index'])->name('categories');
 
 Route::get('/blogs/{blog:slug}', function (Blog $blog) {
 

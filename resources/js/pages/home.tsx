@@ -7,6 +7,12 @@ import { type BreadcrumbItem } from '@/types';
 import { Head, usePage } from '@inertiajs/react';
 import { useRef, useState } from 'react';
 
+const breadcrumbs: BreadcrumbItem[] = [
+    {
+        title: 'Dashboard',
+        href: '/dashboard',
+    },
+];
 export default function Home() {
     
 
@@ -33,8 +39,8 @@ export default function Home() {
     };
 
     return (
-        <AppLayout>
-            <Head title="Home" />
+ <AppLayout breadcrumbs={breadcrumbs}>
+                <Head title="Home" />
             <div className="w-full" ref={topRef}>
                 <h5 className="text-2xl tracking-tight">Your passion for food starts here!</h5>
 

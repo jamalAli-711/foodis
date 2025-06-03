@@ -13,7 +13,7 @@ use Inertia\Inertia;
 // })->name('home');
 Route::get('/',[HomeController::class,'index'])->name('home');
 Route::get('/posts/create',[HomeController::class,'PostsCreate'])->name('Posts.Create');
-Route::get('/posts/store',[HomeController::class,'store'])->name('posts.store');
+Route::post('/posts/store',[HomeController::class,'store'])->name('posts.store');
 Route::get('/posts/categories',[Post_categorieController::class,'create'])->name('posts.categories');
 Route::post('/posts/categories-store',[Post_categorieController::class,'store'])->name('posts.categories-store');
 Route::get('/blogs/{blog:slug}', function (Blog $blog) {

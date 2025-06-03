@@ -1,49 +1,46 @@
-const ShowCategory=()=>{
+
+
+const ShowCategory=({category_posts})=>{
+   const setdate=new Date();
+ 
+ const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString(); // أو أي تنسيق تاريخ تفضله
+  }; // أو أي تنسيق تاريخ تف
 return (
 <>
-<div class="shadow-lg rounded-lg overflow-hidden mx-4 md:mx-10">
-    <table class="w-full table-fixed">
+<div className=" rounded-lg overflow-hidden  md:mx-2">
+    <table className="w-full table-fixed">
         <thead>
-            <tr class="bg-gray-100">
-                <th class="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">Name</th>
-                <th class="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">Email</th>
-                <th class="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">Phone</th>
-                <th class="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">Status</th>
+            <tr className="bg-gray-100">
+                <th className="p-2 text-left text-gray-600 font-bold uppercase">Name</th>
+                <th className="p-2 text-left text-gray-600 font-bold uppercase">Slug</th>
+                <th className="p-2 text-left text-gray-600 font-bold uppercase">Created_at</th>
+                <th className="p-2 text-left text-gray-600 font-bold uppercase">Status</th>
             </tr>
         </thead>
-        <tbody class="bg-white">
-            <tr>
-                <td class="py-4 px-6 border-b border-gray-200">John Doe</td>
-                <td class="py-4 px-6 border-b border-gray-200 truncate">johndoe@gmail.com</td>
-                <td class="py-4 px-6 border-b border-gray-200">555-555-5555</td>
-                <td class="py-4 px-6 border-b border-gray-200">
-                    <span class="bg-green-500 text-white py-1 px-2 rounded-full text-xs">Active</span>
+        <tbody className="">
+            {category_posts &&(
+                category_posts.map((category)=>(
+ <tr key={category.id}>
+                <td className="p-2  border">{category.name}</td>
+                <td className="p-2  border truncate">{category.slug}</td>
+ <td className="p-2 border">{formatDate(category.created_at)}</td>             
+    <td className="p-2  border gap-2">
+                    <span className="bg-green-500 text-white py-1 px-2 rounded-full text-xs">Active</span>
+                    <span className="bg-red-500  text-white py-1 px-2 rounded-full text-xs">Inactive</span>
+
                 </td>
             </tr>
-            <tr>
-                <td ="py-4 px-6 border-b border-gray-200">Jane Doe</td>
-                <td ="py-4 px-6 border-b border-gray-200 truncate">janedoe@gmail.com</td>
-                <td ="py-4 px-6 border-b border-gray-200">555-555-5555</td>
-                <td ="py-4 px-6 border-b border-gray-200">
-                    <span class="bg-red-500 text-white py-1 px-2 rounded-full text-xs">Inactive</span>
-                </td>
-            </tr>
-            <tr>
-                <td className="py-4 px-6 border-b border-gray-200">Jane Doe</td>
-                <td className="py-4 px-6 border-b border-gray-200 truncate">janedoe@gmail.com</td>
-                <td className="py-4 px-6 border-b border-gray-200">555-555-5555</td>
-                <td className="py-4 px-6 border-b border-gray-200">
-                    <span class="bg-red-500 text-white py-1 px-2 rounded-full text-xs">Inactive</span>
-                </td>
-            </tr>
-            <tr>
-                <td className="py-4 px-6 border-b border-gray-200">Jane Doe</td>
-                <td className="py-4 px-6 border-b border-gray-200 truncate">janedoe@gmail.com</td>
-                <td className="py-4 px-6 border-b border-gray-200">555-555-5555</td>
-                <td className="py-4 px-6 border-b border-gray-200">
-                    <span class="bg-red-500 text-white py-1 px-2 rounded-full text-xs">Inactive</span>
-                </td>
-            </tr>
+
+                ))
+            )
+
+            }
+           
+           
+          
+            
             {/* <!-- Add more rows here --> */}
         </tbody>
     </table>

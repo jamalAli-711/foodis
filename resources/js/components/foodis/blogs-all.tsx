@@ -3,6 +3,7 @@ import ReactMarkdown from 'react-markdown';
 
 const BlogsAll = ({ blog }) => {
     // console.log('blogs_all', blog);
+    
 
     return (
         <div className="px-4"  >
@@ -22,8 +23,8 @@ const BlogsAll = ({ blog }) => {
                             <div className="flex flex-1 flex-col justify-between overflow-hidden px-4 leading-normal">
                                 <h1 className="mb-2 text-2xl font-bold tracking-tight">{blog.title}</h1>
 
-                                <div className="overflow-hidden text-sm text-nowrap text-ellipsis">
-                                    <ReactMarkdown >{blog.content}</ReactMarkdown>
+                                <div className="overflow-hidden text-sm  truncate text-left ">
+                                    <ReactMarkdown className="" >{blog.content}</ReactMarkdown>
                                 </div>
                             </div>
                         </Link>

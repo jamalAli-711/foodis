@@ -1,15 +1,12 @@
-import { NavFooter } from '@/components/nav-footer';
 import { NavMain } from '@/components/nav-main';
 import { NavUser } from '@/components/nav-user';
 import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from '@/components/ui/sidebar';
 import { type NavItem } from '@/types';
 import { Link } from '@inertiajs/react';
-import { BookOpen, Folder, HomeIcon, LayoutGrid, LogOutIcon, TagIcon } from 'lucide-react';
+import {  HomeIcon, LayoutGrid, LogOutIcon, TagIcon } from 'lucide-react';
 import AppLogo from './app-logo';
-import axios from 'axios';
-import { PlusIcon } from '@heroicons/react/24/solid';
 import { NavPost } from './foodis/posts/nav-post';
-const axiosget=axios.get('/');
+// const axiosget=axios.get('/');
 
 const mainNavItems: NavItem[] = [
     
@@ -33,12 +30,12 @@ const mainNavItems: NavItem[] = [
 
     },
     
-    // {
-    //     title: ' Post settings',
-    //     href:'/posts/categories',
-    //     icon: TagIcon,
+    {
+        title: ' Post settings',
+        href:'/posts/categories',
+        icon: TagIcon,
 
-    // },
+    },
       
    
 ];

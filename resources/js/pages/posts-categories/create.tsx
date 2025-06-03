@@ -1,22 +1,23 @@
-import InputT from '@/components/foodis/input';
-import TextareaBlog from '@/components/foodis/textarea-blog';
 import AppLayout from '@/layouts/app-layout';
 import { Head } from '@inertiajs/react';
-import axios from 'axios';
-import { useEffect, useState } from 'react';
-import { PaperAirplaneIcon } from '@heroicons/react/24/solid';
 import CreateCategory from '@/components/foodis/category-posts/create-category';
+import ShowCategory from '@/components/foodis/category-posts/show-category';
 
-const CreateCategoryPosts = () => {
+const CreateCategoryPosts = ({status,category_posts}) => {
+    console.log("category_posts",category_posts);
   
     return (
         <AppLayout>
-            <Head title="Home" />
-            <CreateCategory />
+            <Head title="Category" />
+            <div className='grid grid-cols-2 max-md:grid-cols-1 py-4  gap-4'>
+                 <CreateCategory  status={status}  />
+            <ShowCategory category_posts={category_posts} />
+
+            </div>
+           
            
            
         </AppLayout>
     );
 };
 export default CreateCategoryPosts;
-2

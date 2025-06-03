@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Blog;
 use App\Models\Category;
+use App\Models\Post;
 use App\Models\Rating;
 use App\Models\Recipe;
 use App\Models\Tag;
@@ -26,7 +27,7 @@ class HomeController extends Controller
     'recipes' =>$recipes,
     'categorys' =>Category::all(),
         'ratings' =>Rating::all(),
-        'blogs_all' =>Blog::all(),
+        'blogs_all' =>Post::all(),
         'tags' =>$tags,
 
 ]);

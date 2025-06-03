@@ -1,7 +1,4 @@
-import { Head, useForm } from '@inertiajs/react';
-import { FormEventHandler, useState} from 'react';
 
-import { PageProps } from '@/types';
 import InputT from '@/components/foodis/input';
 import QuillEditor from '@/components/foodis/QuillEditor';
 import AppLayout from '@/layouts/app-layout';
@@ -12,7 +9,6 @@ import { FormEventHandler, useEffect, useState } from 'react';
 
 
 
-export default function Create({ auth }: PageProps) {
 export default function Create({ auth, success }: PageProps) {
     const { data, setData, post, processing, errors } = useForm({
         title: '',

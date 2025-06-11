@@ -24,9 +24,11 @@ return new class extends Migration
             $table->longText('excerpt')->nullable();
             $table->string('meta_title')->nullable();
             $table->text('meta_description')->nullable();
+            $table->boolean('is_featured')->default(false)->comment('هل  مميزة؟');
             $table->unsignedBigInteger('views')->default(0);
             $table->timestamps();
         });
+        
     }
 
     /**

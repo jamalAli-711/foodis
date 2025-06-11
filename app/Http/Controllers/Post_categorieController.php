@@ -19,10 +19,14 @@ class Post_categorieController extends Controller
      public function store(Request $request)
     {
         // dd($request);
-
-        return CategoryPost::create([
+         CategoryPost::create([
             'name' => $request->name,
             'slug' => $request->slug??Str::slug($request->name)
         ]);
+         return Inertia::render('posts-categories/create', [
+            'success' => 'تم  الحفظ بنجاح!'
+        ]);    
+
+       
     }
 }

@@ -10,11 +10,10 @@ const Tags=({tags ,onTag})=>{
     <div >
         <div className="grid grid-cols-5 w-full gap-4" >
             {tags.data.map((tag)=>(
-                <div  key={tag.id} className=""
-                 
-                 >
-   <span className="p-2   rounded-lg bg-gray-100  hover:bg-gray-300   "onClick={()=>onTag(tag)}>
- {tag.name} </span>
+                <div  key={tag.id} className="">
+   <span className="p-2   rounded-lg dark:bg-black/30 bg-gray-100  hover:bg-gray-300   "onClick={()=>onTag(tag)}>
+          {tag.name} 
+          </span>
                 </div>
             ))}
         </div>

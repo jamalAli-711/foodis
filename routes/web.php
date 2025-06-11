@@ -8,6 +8,7 @@ use App\Http\Controllers\Post_categorieController;
 use App\Http\Controllers\PostController;
 use App\Models\Blog;
 use App\Models\Category;
+use App\Models\Post;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -21,13 +22,9 @@ Route::get('/posts/categories',[Post_categorieController::class,'create'])->name
 Route::post('/posts/categories-store',[Post_categorieController::class,'store'])->name('posts.categories-store');
 Route::get('/posts/create',[HomeController::class,'PostsCreate'])->name('PostsCreate');
 Route::post('/posts', [PostController::class, 'store'])->name('posts.store');
+Route::get('/{post:slug}', [PostController::class, 'show'])->name('blogs.show');
 Route::get('/categories',[CategoryController::class,'index'])->name('categories');
 
-Route::get('/blogs/{blog:slug}', function (Blog $blog) {
-          
-    return Inertia::render('blog-show', [
-    'blog' =>$blog,
-]);})->name('blogs.show');
 
 
 Route::middleware(['auth', 'verified'])->group(function () {
@@ -35,7 +32,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 Route::get('dashboard', function () {
     return Inertia::render('dashboard');
 })->name('dashboard');
-  Route::get('login', [AuthenticatedSessionController::class, 'create'])
+  Route::get('log', [AuthenticatedSessionController::class, 'create'])
         ->name('login');
   Route::get('register', [RegisteredUserController::class, 'create'])
         ->name('register');

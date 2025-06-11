@@ -4,9 +4,9 @@ import { FacebookIcon, Github, GithubIcon, InstagramIcon, LinkedinIcon, LucideYo
 const Footer=()=>{
     return (
       
-        <footer className="flex flex-col space-y-10 justify-center m-10 bg-gray-100">
+        <footer className="flex flex-col rounded-lg  space-y-10 border  justify-center  ">
 
-    <nav className="flex justify-center flex-wrap gap-6 text-gray-500 font-medium">
+    <nav className="flex justify-center flex-wrap gap-6  font-medium">
         <Link className="hover:text-gray-900" href="/">Home</Link>
         <Link className="hover:text-gray-900" href="#">About</Link>
         <Link className="hover:text-gray-900" href="#">Services</Link>
@@ -30,7 +30,7 @@ const Footer=()=>{
         <TwitterIcon/>
         </a>
     </div>
-    <p className="text-center text-gray-700 font-medium">&copy;© 2025 <a href="https://flowbite.com/">FoodisV™</a>. All Rights Reserved..</p>
+    <p className="text-center font-medium">&copy;© 2025 <a href="https://flowbite.com/">FoodisV™</a>. All Rights Reserved..</p>
 </footer>
 
     );

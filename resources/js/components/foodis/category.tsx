@@ -20,6 +20,11 @@ interface Category {
     image?: string;
     icon?: string;
 }
+interface CategorysPosts {
+    id: number;
+    name: string;
+   
+}
 
 interface CategorysPageProps {
     recipes: {
@@ -30,28 +35,31 @@ interface CategorysPageProps {
             active: boolean;
         }>;
     };
-    categorys: Category[];
+    categorysPosts: CategorysPosts[];
 }
-export default function Category({ recipes ,onCategory}: CategorysPageProps) {
+export default function Category({ recipes ,onCategory}) {
     
     const red = 'red';
     const [handilRecipe,setHandilRecipe]=useState(0);
 
-  
-
     return (
         <>
+
+            <div>
+             <h1 className="max-md:hidden py-2 font-bold">Recipes</h1>
+            <div>
             <div className="border-sidebar-border/70 dark:border-sidebar-border w-xs rounded-xl border px-1 max-md:hidden">
-                <h1 className="py-2 font-bold">Recipes</h1>
                 
-                {recipes.data.map((recipe) => (
+                {recipes.map((recipe) => (
                     <p
-                    key={recipe.id} className="me-2 mb-2 w-full rounded-lg bg-gray-100 py-0.5 dark:bg-gray-700/30"
+                    key={recipe.id} className="me-2 mb-2 w-full rounded-lg bg-gray-100  dark:bg-gray-700/30 py-0.5"
                     onClick={()=>onCategory(recipe)}
                     >
-                        {recipe.title}
+                        {recipe.name}
                     </p>
                 ))}
+            </div>
+            </div>
             </div>
         </>
     );

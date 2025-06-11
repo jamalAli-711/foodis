@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
+use Illuminate\Support\Str;
 
 class PostController extends Controller
 {
@@ -13,30 +14,32 @@ class PostController extends Controller
         // dd($request->all());
         $validated = $request->validate([
             'title' => 'required|string|max:255',
-            'slug' => 'required|string|max:255|unique:posts',
+            'slug' => 'nullable|string|unique:posts',
             'content' => 'required|string',
-            'category_id' => 'required|exists:categories,id',
-            'featured_image' => 'nullable|image|max:2048',
+            'category_id' => 'required|exists:category_posts,id',
+            'featured_image' => 'required|string',
             'status' => 'required|in:draft,published,archived',
             'published_at' => 'nullable|date',
-            'excerpt' => 'nullable|string|max:300',
-            'meta_title' => 'nullable|string|max:60',
-            'meta_description' => 'nullable|string|max:160',
+            'excerpt' => 'nullable|string',
+            'meta_title' => 'nullable|string',
+            'meta_description' => 'nullable|string',
             'user_id' => 'required|exists:users,id',
         ]);
 
         if ($request->hasFile('featured_image')) {
             $validated['featured_image'] = $request->file('featured_image')->store('posts', 'public');
         }
+        $validated['slug'] = $request->slug ?? Str::slug($request->title);
 
         Post::create($validated);
         return Inertia::render('posts/create', [
             'success' => 'تم إنشاء المنشور بنجاح!'
         ]);    }
     //
-    public function show($slug)
+    public function show(Post $post)
 {
-    $post = Post::where('slug', $slug)->firstOrFail();
+    // dd(5);
+    $post = Post::where('id', $post->id)->firstOrFail();
 
     $viewExists = false;
 
@@ -44,12 +47,14 @@ class PostController extends Controller
         // للمستخدمين المسجلين
         $viewExists = $post->views()->where('user_id', auth()->id())->exists();
         if (!$viewExists) {
+
             $post->views()->create(['user_id' => auth()->id()]);
             $post->increment('views');
         }
     } else {
         // للزوار
         $ip = request()->ip();
+        // dd($ip );
         $userAgent = request()->userAgent();
         $viewExists = $post->views()
             ->where('ip_address', $ip)
@@ -64,7 +69,9 @@ class PostController extends Controller
             $post->increment('views');
         }
     }
+         return Inertia::render('blog-show', [
+     'post' =>$post,
+]);
 
-    return view('posts.show', compact('post'));
 }
 }

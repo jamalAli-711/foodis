@@ -1,6 +1,6 @@
 import { Head, useForm } from '@inertiajs/react';
 import { LoaderCircle } from 'lucide-react';
-import { FormEventHandler } from 'react';
+import { FormEventHandler, useEffect, useState } from 'react';
 
 import InputError from '@/components/input-error';
 import TextLink from '@/components/text-link';
@@ -10,6 +10,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import AuthLayout from '@/layouts/auth-layout';
 import SelectCombobox from '../posts/select-Combobox';
+import axios from 'axios';
 
 type CategoryForm = {
     name: string;
@@ -21,22 +22,40 @@ interface CategoryProps {
     canResetPassword: boolean;
 }
 
-export default function CreateCategory({ status }: CategoryProps) {
+export default function CreateCategory({ success }: CategoryProps) {
     const { data, setData, post, processing, errors } = useForm<Required<CategoryForm>>({
         name: '',
         slug: '',
       
     });
-
+const [successMessage, setSuccessMessage] = useState<string | null>(null);
+    
+        useEffect(() => {
+            if (success) {
+                setSuccessMessage(success);
+                const timer = setTimeout(() => setSuccessMessage(null), 5000);
+                return () => clearTimeout(timer);
+            }
+        }, [success]);
     const submit: FormEventHandler = (e) => {
         e.preventDefault();
-        post(route('posts.categories-store'));
+       post('/posts/categories-store');
     };
 
     return (
         <div className=" border rounded-lg px-2 md:mx-2 ">          
         <AuthLayout  title="New Category">
           <Head title="New Category" />
+            {successMessage && (
+                <div className="fixed top-4 right-4 z-50">
+                    <div className="rounded bg-green-500 px-4 py-2 text-white shadow-lg">
+                        {successMessage}
+                        <button onClick={() => setSuccessMessage(null)} className="ml-2">
+                            ✕
+                        </button>
+                    </div>
+                </div>
+            )}
 
             <form className="flex flex-col  " onSubmit={submit}>
                 <div className="grid gap-6">

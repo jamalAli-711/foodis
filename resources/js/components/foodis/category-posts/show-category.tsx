@@ -9,14 +9,14 @@ const ShowCategory=({category_posts})=>{
   }; // أو أي تنسيق تاريخ تف
 return (
 <>
-<div className=" rounded-lg overflow-hidden  md:mx-2">
-    <table className="w-full table-fixed">
+<div className=" rounded-lg   md:mx-2">
+    <table className="w-full ">
         <thead>
-            <tr className="bg-gray-100">
-                <th className="p-2 text-left text-gray-600 font-bold uppercase">Name</th>
-                <th className="p-2 text-left text-gray-600 font-bold uppercase">Slug</th>
-                <th className="p-2 text-left text-gray-600 font-bold uppercase">Created_at</th>
-                <th className="p-2 text-left text-gray-600 font-bold uppercase">Status</th>
+            <tr className="">
+                <th className="p-2 text-left font-bold ">Name</th>
+                <th className="p-2 text-left font-bold ">Slug</th>
+                <th className="p-2 text-left font-bold ">Created_at</th>
+                <th className="p-2 text-left font-bold ">Status</th>
             </tr>
         </thead>
         <tbody className="">
@@ -24,11 +24,11 @@ return (
                 category_posts.map((category)=>(
  <tr key={category.id}>
                 <td className="p-2  border">{category.name}</td>
-                <td className="p-2  border truncate">{category.slug}</td>
+                <td className="p-2  border ">{category.slug}</td>
  <td className="p-2 border">{formatDate(category.created_at)}</td>             
     <td className="p-2  border gap-2">
-                    <span className="bg-green-500 text-white py-1 px-2 rounded-full text-xs">Active</span>
-                    <span className="bg-red-500  text-white py-1 px-2 rounded-full text-xs">Inactive</span>
+                    <span className="bg-green-500  py-1 px-2 rounded-full text-xs">Active</span>
+                    <span className="bg-red-500  py-1 px-2 rounded-full text-xs">Inactive</span>
 
                 </td>
             </tr>

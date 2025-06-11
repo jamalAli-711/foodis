@@ -112,7 +112,10 @@
     --sidebar-border: oklch(0.922 0 0);
     --sidebar-ring: oklch(0.87 0 0);
 }
-
+body {
+ 
+     /* font-style: normal; */
+}
 .dark {
     --background: oklch(0.145 0 0);
     --foreground: oklch(0.985 0 0);
@@ -147,19 +150,61 @@
     --sidebar-border: oklch(0.269 0 0);
     --sidebar-ring: oklch(0.439 0 0);
 }
-.list {
-  @apply  gap-8 flex flex-wrap items-center justify-center ;
-}
-.list>ul  {
-  @apply  gap-8 flex flex-wrap items-center justify-center ;
-}
-.list > ul,il {
-  @apply  font-bold;
-}
-.list > ul>il,ul {
-  @apply  font-medium gap-8 text-sm  items-center justify-center ;
+.list table {
+  @apply  w-full text-sm     ;
 }
 
+.list td{
+  @apply font-medium border p-1;
+}
+.list tr{
+  @apply border px-6 py-3 ;
+}
+
+.list  th{
+  @apply border px-2   py-2 text-left  font-bold  ;
+}
+.list {
+  @apply  gap-2 ;
+}
+.list a{
+  @apply  font-bold  text-red-600;
+}
+
+.list>h1{
+  @apply text-4xl font-bold  ;
+}
+
+.list>h2{
+  @apply text-2xl  font-bold  ;
+}
+
+.list>h3{
+  @apply text-xl font-bold  ;
+}
+h3{
+  @apply text-lg font-bold mb-2 ;
+}
+.list>h4{
+  @apply text-xl font-black  ;
+}
+.list>h5{
+  @apply  text-lg font-black  ;
+}
+.list>h5{
+  @apply text-base  font-black  ;
+}
+.list>ul  {
+  @apply  px-6 list-disc list-inside;
+}
+body ,.list  {
+   font-family: Serif;
+  }
+
+
+  body {
+        font-family:"Arial";
+    }
 
 @layer base {
     * {

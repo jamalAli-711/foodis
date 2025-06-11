@@ -38,7 +38,7 @@ export function PostsMenuContent() {
                 </DropdownMenuItem>
 
                 <DropdownMenuItem asChild>
-                    <Link className="block w-full" href={route('profile.edit')} as="button" prefetch onClick={cleanup}>
+                    <Link className="block w-full" href={route('posts.categories')} as="button" prefetch onClick={cleanup}>
                         <PlusIcon className="mr-2" />
                         create category
                     </Link>

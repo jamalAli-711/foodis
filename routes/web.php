@@ -12,9 +12,12 @@ use App\Models\Post;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
-// Route::get('/', function () {
-//     return Inertia::render('home');
-// })->name('home');
+Route::get('about', function () {
+    return Inertia::render('about');
+})->name('about');
+Route::get('services', function () {
+    return Inertia::render('services');
+})->name('services');
 Route::get('/',[HomeController::class,'index'])->name('home');
 Route::get('/posts/create',[HomeController::class,'PostsCreate'])->name('posts.create');
 Route::post('/posts/store',[HomeController::class,'store'])->name('posts.store');
@@ -34,7 +37,7 @@ Route::get('dashboard', function () {
 })->name('dashboard');
   Route::get('log', [AuthenticatedSessionController::class, 'create'])
         ->name('login');
-  Route::get('register', [RegisteredUserController::class, 'create'])
+  Route::get('registe', [RegisteredUserController::class, 'create'])
         ->name('register');
 require __DIR__.'/settings.php';
 require __DIR__.'/auth.php';

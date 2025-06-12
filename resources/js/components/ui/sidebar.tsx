@@ -277,11 +277,11 @@ function SidebarTrigger({
 
 <nav className="flex  gap-6 text-gray-500 font-medium ">
         <Link className="hover:text-gray-900" href="/">Home</Link>
-        <Link className="hover:text-gray-900" href="#">About</Link>
-        <Link className="hover:text-gray-900" href="#">Services</Link>
-        <Link className="hover:text-gray-900" href="#">Media</Link>
+        <Link className="hover:text-gray-900" href="/about ">About</Link>
+        <Link className="hover:text-gray-900" href="/services">Services</Link>
+        {/* <Link className="hover:text-gray-900" href="#">Media</Link>
         <Link className="hover:text-gray-900" href="#">Gallery</Link>
-        <Link className="hover:text-gray-900" href="#">Contact</Link>
+        <Link className="hover:text-gray-900" href="#">Contact</Link> */}
     </nav>  
                         
                                     

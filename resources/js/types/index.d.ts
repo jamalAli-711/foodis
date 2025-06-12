@@ -1,9 +1,7 @@
 import { LucideIcon } from 'lucide-react';
 import type { Config } from 'ziggy-js';
 
-export interface Auth {
-    user: User;
-}
+
 
 export interface BreadcrumbItem {
     title: Array;
@@ -21,7 +19,21 @@ export interface NavItem {
     icon?: LucideIcon | null;
     isActive?: boolean;
 }
+export  interface Auth {
+        user: User | null; // تعديل لجعل user nullable
+    }
 
+export interface User {
+    id: number;
+    name: string;
+    userType: string | null;
+    email: string;
+    avatar?: string;
+    email_verified_at: string | null;
+    created_at: string;
+    updated_at: string;
+    [key: string]: unknown; // This allows for additional properties...
+}
 export interface SharedData {
     name: string;
     user_type: string;
@@ -64,14 +76,4 @@ export interface CategorysPageProps {
     };
     categorys: Category[];
 }
-export interface User {
-    id: number;
-    name: string;
-    user_type: string;
-    email: string;
-    avatar?: string;
-    email_verified_at: string | null;
-    created_at: string;
-    updated_at: string;
-    [key: string]: unknown; // This allows for additional properties...
-}
+

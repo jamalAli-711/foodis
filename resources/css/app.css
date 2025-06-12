@@ -151,8 +151,9 @@ body {
     --sidebar-ring: oklch(0.439 0 0);
 }
 .list table {
-  @apply  w-full text-sm     ;
+  @apply table-auto md:table-fixed  w-full text-sm     ;
 }
+
 
 .list td{
   @apply font-medium border p-1;

@@ -8,11 +8,11 @@ const Footer=()=>{
 
     <nav className="flex justify-center flex-wrap gap-6  font-medium">
         <Link className="hover:text-gray-900" href="/">Home</Link>
-        <Link className="hover:text-gray-900" href="#">About</Link>
-        <Link className="hover:text-gray-900" href="#">Services</Link>
-        <Link className="hover:text-gray-900" href="#">Media</Link>
+        <Link className="hover:text-gray-900" href="/about">About</Link>
+        <Link className="hover:text-gray-900" href="/services">Services</Link>
+        {/* <Link className="hover:text-gray-900" href="#">Media</Link>
         <Link className="hover:text-gray-900" href="#">Gallery</Link>
-        <Link className="hover:text-gray-900" href="#">Contact</Link>
+        <Link className="hover:text-gray-900" href="#">Contact</Link> */}
     </nav>
 
     <div className="flex justify-center space-x-5">

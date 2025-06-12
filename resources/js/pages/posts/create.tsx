@@ -1,18 +1,13 @@
-
 import InputT from '@/components/foodis/input';
-import QuillEditor from '@/components/foodis/QuillEditor';
 import AppLayout from '@/layouts/app-layout';
 import { PageProps } from '@/types';
-import { Category } from '@/types';
 import { Head, useForm, usePage } from '@inertiajs/react';
 import axios from 'axios';
 import { FormEventHandler, useEffect, useState } from 'react';
 
-
-
-export default function Create({ auth, success  }: PageProps) {
-       const { props } = usePage();
-        const {  categorysPosts} = props;
+export default function Create({ auth, success }: PageProps) {
+    const { props } = usePage();
+    const { categorysPosts } = props;
 
     const { data, setData, post, processing, errors } = useForm({
         title: '',
@@ -27,9 +22,7 @@ export default function Create({ auth, success  }: PageProps) {
         meta_description: '',
         user_id: auth.user.id, // أخذ القيمة من auth مباشرة
     });
-// const props=usePage();
-
-
+    // const props=usePage();
 
     const [successMessage, setSuccessMessage] = useState<string | null>(null);
 
@@ -112,10 +105,10 @@ export default function Create({ auth, success  }: PageProps) {
                     </div>
                 </div>
             )}
-            <div className="min-h-screen  px-4 py-8 sm:px-6 lg:px-8">
+            <div className="min-h-screen px-4 py-8 sm:px-6 lg:px-8">
                 <div className="mx-auto max-w-4xl">
                     <div className="mb-6 flex items-center justify-between">
-                        <h1 className="text-3xl font-bold ">Create New Post</h1>
+                        <h1 className="text-3xl font-bold">Create New Post</h1>
                         <button
                             type="button"
                             onClick={() => window.history.back()}
@@ -129,10 +122,10 @@ export default function Create({ auth, success  }: PageProps) {
                     </div>
 
                     <form onSubmit={submit} className="space-y-8">
-                        <div className="overflow-hidden rounded-lg  shadow-md">
+                        <div className="overflow-hidden rounded-lg shadow-md">
                             {/* Main Content Section */}
-                            <div className="border-b  p-6">
-                                <h2 className="mb-6 text-xl font-semibold ">Post Information</h2>
+                            <div className="border-b p-6">
+                                <h2 className="mb-6 text-xl font-semibold">Post Information</h2>
 
                                 <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                                     {/* Title Input */}
@@ -164,18 +157,17 @@ export default function Create({ auth, success  }: PageProps) {
 
                                     {/* Category Select */}
                                     <div className="md:col-span-1">
-                                        <label className="block text-sm font-medium " htmlFor="category_id">
+                                        <label className="block text-sm font-medium" htmlFor="category_id">
                                             Category
                                         </label>
                                         <select
-                                        id="category_id"
+                                            id="category_id"
                                             onChange={(e) => setData('category_id', e.target.value)}
-                                            className="py-2   mt-1 block w-full rounded-md border shadow-sm"
+                                            className="mt-1 block w-full rounded-md border py-2 shadow-sm"
                                             required
                                         >
                                             {categorysPosts.map((category) => (
-                                                <option className='text-black' key={category.id} 
-                                                value={category.id}>
+                                                <option className="text-black" key={category.id} value={category.id}>
                                                     {category.name}
                                                 </option>
                                             ))}
@@ -186,23 +178,21 @@ export default function Create({ auth, success  }: PageProps) {
 
                                 {/* Featured Image Upload */}
                                 <div className="mt-6">
-                                  
-                                   
-                                     <InputT
-                                            label="featured_image"
-                                            id="featured_image"
-                                            type="text"
-                                            value={data.featured_image}
-                                            onChange={(e) => setData('featured_image', e.target.value)}
-                                            error={errors.title}
-                                            required
-                                            className="text-lg font-medium"/>
-                                    </div>
-
+                                    <InputT
+                                        label="featured_image"
+                                        id="featured_image"
+                                        type="text"
+                                        value={data.featured_image}
+                                        onChange={(e) => setData('featured_image', e.target.value)}
+                                        error={errors.title}
+                                        required
+                                        className="text-lg font-medium"
+                                    />
+                                </div>
 
                                 {/* Excerpt */}
                                 <div className="mt-6">
-                                    <label className="block text-sm font-medium " htmlFor="excerpt">
+                                    <label className="block text-sm font-medium" htmlFor="excerpt">
                                         Excerpt
                                     </label>
                                     <textarea
@@ -218,44 +208,50 @@ export default function Create({ auth, success  }: PageProps) {
 
                                 {/* Content Editor */}
                                 <div className="mt-6">
-                                    <label className="mb-2 block text-sm font-medium " htmlFor="content">
+                                    <label className="mb-2 block text-sm font-medium" htmlFor="content">
                                         Content
                                     </label>
-                                    <div className=" overflow-hidden   ">
-                                        <code className='code-block '>
-                                         <textarea
-                                        id="content"
-                                        rows={20}
-                                        value={data.content}
-                                        onChange={(e) => setData('content', e.target.value)}
-                                        className="   block w-full rounded-md border shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
-                                        placeholder="A brief summary of your post"
-                                    />
-                                    </code>
+                                    <div className="overflow-hidden">
+                                        <code className="code-block">
+                                            <textarea
+                                                id="content"
+                                                rows={20}
+                                                value={data.content}
+                                                onChange={(e) => setData('content', e.target.value)}
+                                                className="block w-full rounded-md border shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+                                                placeholder="A brief summary of your post"
+                                            />
+                                        </code>
                                     </div>
                                     {errors.content && <p className="mt-2 text-sm text-red-600">{errors.content}</p>}
                                 </div>
                             </div>
 
                             {/* Publication Settings */}
-                            <div className="border-b   p-6">
-                                <h2 className="mb-6 text-xl font-semibold ">Publication Settings</h2>
+                            <div className="border-b p-6">
+                                <h2 className="mb-6 text-xl font-semibold">Publication Settings</h2>
 
                                 <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                                     {/* Status Select */}
                                     <div>
-                                        <label className="block text-sm font-medium " htmlFor="status">
+                                        <label className="block text-sm font-medium" htmlFor="status">
                                             Status
                                         </label>
                                         <select
                                             id="status"
                                             value={data.status}
                                             onChange={(e) => setData('status', e.target.value)}
-                                            className="  py-2 mt-1 block w-full rounded-md border shadow-sm"
+                                            className="mt-1 block w-full rounded-md border py-2 shadow-sm"
                                         >
-                                            <option className='text-black' value="draft">Draft</option>
-                                            <option className='text-black' value="published">Published</option>
-                                            <option className='text-black' value="archived">Archived</option>
+                                            <option className="text-black" value="draft">
+                                                Draft
+                                            </option>
+                                            <option className="text-black" value="published">
+                                                Published
+                                            </option>
+                                            <option className="text-black" value="archived">
+                                                Archived
+                                            </option>
                                         </select>
                                     </div>
 
@@ -276,9 +272,9 @@ export default function Create({ auth, success  }: PageProps) {
                             </div>
 
                             {/* SEO Section */}
-                            <div className=" p-6">
+                            <div className="p-6">
                                 <div className="mb-6 flex items-center">
-                                    <div className="flex-shrink-0 rounded-md  p-2">
+                                    <div className="flex-shrink-0 rounded-md p-2">
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"
                                             className="h-5 w-5 text-indigo-600"
@@ -292,7 +288,7 @@ export default function Create({ auth, success  }: PageProps) {
                                             />
                                         </svg>
                                     </div>
-                                    <h2 className="ml-3 text-xl font-semibold ">SEO Settings</h2>
+                                    <h2 className="ml-3 text-xl font-semibold">SEO Settings</h2>
                                 </div>
 
                                 <div className="space-y-6">
@@ -317,7 +313,7 @@ export default function Create({ auth, success  }: PageProps) {
                                             rows={3}
                                             value={data.meta_description}
                                             onChange={(e) => setData('meta_description', e.target.value)}
-                                            className="mt-1 block w-full rounded-md border  shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+                                            className="mt-1 block w-full rounded-md border shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
                                             placeholder="Brief description for search engines (recommended: 150-160 characters)"
                                         />
                                         {errors.meta_description && <p className="mt-2 text-sm text-red-600">{errors.meta_description}</p>}
@@ -331,7 +327,7 @@ export default function Create({ auth, success  }: PageProps) {
                             <button
                                 type="button"
                                 onClick={() => window.history.back()}
-                                className="mr-3 inline-flex justify-center rounded-md border  px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:outline-none"
+                                className="mr-3 inline-flex justify-center rounded-md border px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:outline-none"
                             >
                                 Cancel
                             </button>

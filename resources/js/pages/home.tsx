@@ -14,14 +14,44 @@ const breadcrumbs: BreadcrumbItem[] = [
       
     },
 ];
-export default function Home() {
-    
+export default function Home({ auth = { user: null }}) {
+
 
     const { props } = usePage();
     const { recipes, categorys, ratings, posts, tags,categorysPosts } = props;
     const [recipesFood, setRecipesFood] = useState(recipes);
     const [valueSearch, setValueSearch] = useState('');
     const [dataPosts, setDataPosts] = useState(posts);
+    const [dataPostsError, setDataPostsError] = useState(0);
+    const [filteredPosts, setFilteredPosts] = useState();
+        const [handilRecipe,setHandilCategory]=useState();
+
+
+
+  useEffect(() => {
+
+    // تصفية المقالات بناءً على نص البحث
+    const filteredPost = posts.filter(post => 
+      post.title.toLowerCase().includes(valueSearch.toLowerCase()) ||
+      post.meta_title.toLowerCase().includes(valueSearch.toLowerCase()) ||
+      (post.content && post.content.toLowerCase().includes(valueSearch.toLowerCase()))
+    );
+    if(filteredPost){
+        // setFilteredPosts(filteredPost);
+
+        setDataPosts(filteredPost);
+        // setDataPostsError(1);
+    }
+    else{
+        return (<div>
+            kjdfjl
+        </div>)
+    }
+  
+    // console.log('Search results:', filteredPost);
+  }, [valueSearch,posts]); // يعتمد على valueSearch و posts
+ 
+
     const topRef = useRef();
     // console.log('categorysPosts', categorysPosts);
     const onTag = (tag) => {
@@ -40,41 +70,31 @@ export default function Home() {
     const onCategory = (recipe) => {
         return console.log('onCategory', recipe);
     };
-    useEffect(()=>{
-             console.log('search valueSearch',valueSearch);
-    },[valueSearch])
-  
-
+   
+console.log("auth.user ",auth.user );
     return (
+      
  <AppLayout breadcrumbs={breadcrumbs}>
                 <Head title="Home" />
+                
+            
+    
                 <header>
-                    <Header topRef={topRef} />
- <div className="relative">
-        <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-            <svg className="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
-            </svg>
-        </div>
-        <Input type="search" 
-        // onChange={}
-                                        
-        onChange={(e) => setValueSearch(e.target.value)}
-
-
-        id="default-search" className="block w-full p-3 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg  focus:ring-blue-500 focus:border-blue-500  
-         dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search Mockups, Logos..." 
-          />
-
-    </div>
+                    <Header topRef={topRef}   onChange={(e) => setValueSearch(e.target.value)} />
+ 
                 </header>
             
-            <>
+                
+            
+    
+            
+            
+     <>
             {categorysPosts && (
                 
                 <div className="flex h-full gap-4 rounded-xl p-1 max-md:flex-col min-sm:flex-row">
 
-                    <Category recipes={categorysPosts} onCategory={onCategory} />
+                    <Category recipes={categorysPosts} setDataPosts={setDataPosts} posts={posts}/>
                      <section className="" >
                     {/* <h4 className="text-3xl px-4 font-bold"> Latest Blogs </h4> */}
                     {dataPosts.map((post) => (
@@ -91,6 +111,7 @@ export default function Home() {
           
 </>
             <Tags tags={tags} onTag={onTag} />
+   
         </AppLayout>
     );
 }

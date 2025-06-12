@@ -2,7 +2,7 @@ import { SidebarGroup, SidebarGroupLabel, SidebarMenu, SidebarMenuButton, Sideba
 import { User, type NavItem } from '@/types';
 import { Link, usePage } from '@inertiajs/react';
 
-export function NavMain({ items = [] }: { items: NavItem[] }) {
+export function NavMain({ userType,items = [] }: { items: NavItem[] }) {
     const page = usePage();
    const { auth } = usePage<User>().props;
     return (
@@ -12,7 +12,7 @@ export function NavMain({ items = [] }: { items: NavItem[] }) {
                 {items.map((item) => (
                     
                     item.title==="Dashboard"  ?
-                    auth.user.user_type==="admin" &&(
+                   userType==="admin" &&(
                         <SidebarMenuItem key={item.title}>
                         <SidebarMenuButton  
                             asChild isActive={item.href === page.url}

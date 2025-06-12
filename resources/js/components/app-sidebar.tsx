@@ -1,55 +1,37 @@
 import { NavMain } from '@/components/nav-main';
 import { NavUser } from '@/components/nav-user';
 import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from '@/components/ui/sidebar';
-import { User, type NavItem } from '@/types';
+import { SharedData, User, type NavItem } from '@/types';
 import { Link, usePage } from '@inertiajs/react';
-import {  HomeIcon, LayoutGrid, LogOutIcon, TagIcon } from 'lucide-react';
+import { HomeIcon, LayoutGrid, LogOutIcon } from 'lucide-react';
 import AppLogo from './app-logo';
 import { NavPost } from './foodis/posts/nav-post';
-// const axiosget=axios.get('/');
 
 const mainNavItems: NavItem[] = [
-    
-
     {
         title: 'Dashboard',
         href: '/dashboard',
-        
         icon: LayoutGrid,
     },
     {
         title: 'Home',
-        href:'/',
+        href: '/',
         icon: HomeIcon,
-
     },
-   
-
-        {
-            title: 'Register',
-            href:'/register',
-            icon: LogOutIcon,
-    
-        },
-    
-    
-    // {
-    //     title: ' Post settings',
-    //     href:'/posts/categories',
-    //     icon: TagIcon,
-
-    // },
-      
-   
+    {
+        title: 'Register',
+        href: '/register',
+        icon: LogOutIcon,
+    },
 ];
 
-
-
 export function AppSidebar() {
-     const { auth } = usePage<User>().props;
-    
+  const { auth } = usePage<SharedData>().props;
+    const userType = auth?.user?.user_type;
+    const isAdmin = userType === 'admin';
+
     return (
-        <Sidebar >
+        <Sidebar>
             <SidebarHeader>
                 <SidebarMenu>
                     <SidebarMenuItem>
@@ -63,19 +45,12 @@ export function AppSidebar() {
             </SidebarHeader>
 
             <SidebarContent>
-                <NavMain items={mainNavItems} />
-                {
-                    auth.user.user_type==="admin"&&(
-
-                        <NavPost/>
-                    )
-                }
-               
+                <NavMain items={mainNavItems} userType={userType} />
+                {isAdmin && <NavPost />}
             </SidebarContent>
 
             <SidebarFooter>
-                {/* <NavFooter items={footerNavItems} className="mt-auto" /> */}
-                <NavUser />
+                <NavUser user={auth?.user} />
             </SidebarFooter>
         </Sidebar>
     );

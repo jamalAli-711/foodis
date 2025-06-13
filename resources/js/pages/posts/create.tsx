@@ -169,6 +169,10 @@ export default function Create({ auth, success }: PageProps) {
                                             onChange={(e) => setData('category_id', e.target.value)}
                                             className="mt-1 block w-full rounded-md border py-2 shadow-sm"
                                         >
+                                                <option selected className="text-black" 
+                                                 value={null}>
+                                                    {"NULL"}
+                                                </option>
                                             {categorysPosts.map((category) => (
                                                 <option className="text-black" 
                                                  value={category.id}>

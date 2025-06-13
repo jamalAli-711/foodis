@@ -16,14 +16,14 @@ class PostController extends Controller
             'title' => 'required|string|max:255',
             'slug' => 'nullable|string|unique:posts',
             'content' => 'required|string',
-            'category_id' => 'required|',
+            'category_id' => 'required',
             'featured_image' => 'required|string',
             'status' => 'required|in:draft,published,archived',
             'published_at' => 'nullable|date',
             'excerpt' => 'nullable|string',
             'meta_title' => 'nullable|string',
             'meta_description' => 'nullable|string',
-            'user_id' => 'required|',
+            'user_id' => 'required',
         ]);
 
         if ($request->hasFile('featured_image')) {

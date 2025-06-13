@@ -11,7 +11,7 @@ class PostController extends Controller
 {
     public function store(Request $request)
     {
-        // dd($request->all());
+        dd($request->all());
         $validated = $request->validate([
             'title' => 'required|string|max:255',
             'slug' => 'nullable|string|unique:posts',

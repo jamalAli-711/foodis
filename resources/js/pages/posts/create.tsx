@@ -92,6 +92,8 @@ export default function Create({ auth, success }: PageProps) {
         });
     };
 
+
+
     return (
         <AppLayout>
             <Head title="Create New Post" />
@@ -161,13 +163,16 @@ export default function Create({ auth, success }: PageProps) {
                                             Category
                                         </label>
                                         <select
+                                           value={data.category_id}
                                             id="category_id"
+
                                             onChange={(e) => setData('category_id', e.target.value)}
                                             className="mt-1 block w-full rounded-md border py-2 shadow-sm"
                                             required
                                         >
                                             {categorysPosts.map((category) => (
-                                                <option className="text-black" key={category.id} value={category.id}>
+                                                <option className="text-black" 
+                                                 value={category.id}>
                                                     {category.name}
                                                 </option>
                                             ))}

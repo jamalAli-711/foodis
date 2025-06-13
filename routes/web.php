@@ -35,9 +35,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
 Route::get('dashboard', function () {
     return Inertia::render('dashboard');
 })->name('dashboard');
-  Route::get('log', [AuthenticatedSessionController::class, 'create'])
+  Route::get('/log/in', [AuthenticatedSessionController::class, 'create'])
         ->name('login');
-  Route::get('registe', [RegisteredUserController::class, 'create'])
+  Route::get('/r/register', [RegisteredUserController::class, 'create'])
         ->name('register');
 require __DIR__.'/settings.php';
 require __DIR__.'/auth.php';

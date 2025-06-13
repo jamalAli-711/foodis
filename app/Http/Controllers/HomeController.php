@@ -13,10 +13,12 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
+use Inertia\Response;
+use Illuminate\Support\Facades\Route;
 
 class HomeController extends Controller
 {
- public function index(Request $request)
+ public function index()
     {
       
        $recipes= Recipe::with(['category', 'ingredients', 'steps', 'tags','ratings'])
@@ -52,6 +54,7 @@ class HomeController extends Controller
 
 
     }
+    
  public function store()
     {
        dd(545);

@@ -6,7 +6,7 @@ import { createRoot } from 'react-dom/client';
 import { initializeTheme } from './hooks/use-appearance';
 import Footer from './components/foodis/footer';
 
-const appName = import.meta.env.VITE_APP_NAME ;
+// const appName = import.meta.env.VITE_APP_NAME ;
 
 createInertiaApp({
         title: (title) => `${title} `,

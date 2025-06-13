@@ -168,7 +168,6 @@ export default function Create({ auth, success }: PageProps) {
 
                                             onChange={(e) => setData('category_id', e.target.value)}
                                             className="mt-1 block w-full rounded-md border py-2 shadow-sm"
-                                            required
                                         >
                                             {categorysPosts.map((category) => (
                                                 <option className="text-black" 

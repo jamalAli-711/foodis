@@ -18,7 +18,7 @@ return new class extends Migration
             $table->longText('content')->nullable();
             $table->string('featured_image')->nullable();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->foreignId('category_id')->constrained()->nullable()->onDelete('cascade');
+            $table->foreignId('category_id')->constrained()->onDelete('cascade');
             $table->enum('status', ['draft', 'published', 'archived'])->default('draft');
             $table->timestamp('published_at')->nullable();
             $table->longText('excerpt')->nullable();

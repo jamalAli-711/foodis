@@ -110,7 +110,7 @@ export default function Create({ auth, success }: PageProps) {
             <div className="min-h-screen px-4 py-8 sm:px-6 lg:px-8">
                 <div className="mx-auto max-w-4xl">
                     <div className="mb-6 flex items-center justify-between">
-                        <h1 className="text-3xl font-bold">Create New Post</h1>
+                        <h1 className="text-3xl font-bold text-gray-600">Create New Post</h1>
                         <button
                             type="button"
                             onClick={() => window.history.back()}

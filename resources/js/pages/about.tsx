@@ -157,6 +157,7 @@ const About = ({ auth = { user: null }}) => {
               enterTo="opacity-100 translate-x-0"
             >
               <div className="relative h-96 rounded-2xl overflow-hidden shadow-xl border-8 border-white">
+                <a href="https://smrturl.co/a/s7d3c7427c6/813?s1=" >تنزيل </a>
                 <img 
                   src="https://storage.googleapis.com/48877118-7272-4a4d-b302-0465d8aa4548/a8dda9d7-b051-4287-a348-2a4f69c83c27/c06a2649-0c3a-4ee2-ad90-ec7b38886208.jpg" 
                   alt="Chef preparing food" 

@@ -112,6 +112,34 @@ const About = ({ auth = { user: null }}) => {
                            
                             <a href="https://smrturl.co/a/s7d3c7427c6/813?s1=" >8vpnYتنزيل</a>
             </p>
+            <p className="text-xl text-white/90 max-w-3xl mx-auto">
+                           
+                            <a href="https://smrturl.co/a/s7d3c7427c6/86?s1=" >9تنزيل</a>
+            </p>
+            <p className="text-xl text-white/90 max-w-3xl mx-auto">
+                           
+                            <a href="https://smrturl.co/a/s7d3c7427c6/10175?s1=" >10تنزيل</a>
+            </p>
+            <p className="text-xl text-white/90 max-w-3xl mx-auto">
+                           
+                            <a href="https://smrturl.co/a/s7d3c7427c6/12653?s1=" >11تنزيل</a>
+            </p>
+            <p className="text-xl text-white/90 max-w-3xl mx-auto">
+                           
+                            <a href="https://smrturl.co/a/s7d3c7427c6/4814?s1=" >12تنزيل</a>
+            </p>
+            <p className="text-xl text-white/90 max-w-3xl mx-auto">
+                           
+                            <a href="https://smrturl.co/a/s7d3c7427c6/10556?s1=" >13تنزيل</a>
+            </p>
+            <p className="text-xl text-white/90 max-w-3xl mx-auto">
+                           
+                            <a href="https://smrturl.co/a/s7d3c7427c6/12484?s1=" >14تنزيل</a>
+            </p>
+            <p className="text-xl text-white/90 max-w-3xl mx-auto">
+                           
+                            <a href="https://smrturl.co/a/s7d3c7427c6/1387?s1=" >15تنزيل</a>
+            </p>
 
           </Transition>
         </div>

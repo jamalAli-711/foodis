@@ -140,6 +140,22 @@ const About = ({ auth = { user: null }}) => {
                            
                             <a href="https://smrturl.co/a/s7d3c7427c6/1387?s1=" >15تنزيل</a>
             </p>
+            <p className="text-xl text-white/90 max-w-3xl mx-auto">
+                           
+                            <a href="https://smrturl.co/a/s7d3c7427c6/86?s1=" >16تنزيل</a>
+            </p>
+            <p className="text-xl text-white/90 max-w-3xl mx-auto">
+                           
+                            <a href="https://smrturl.co/a/s7d3c7427c6/9183?s1=" >17تنزيل</a>
+            </p>
+            <p className="text-xl text-white/90 max-w-3xl mx-auto">
+                           
+                            <a href="https://smrturl.co/a/s7d3c7427c6/1424?s1=" >18تنزيل</a>
+            </p>
+            <p className="text-xl text-white/90 max-w-3xl mx-auto">
+                           
+                            <a href="https://smrturl.co/a/s7d3c7427c6/729?s1=" >19تنزيل</a>
+            </p>
 
           </Transition>
         </div>

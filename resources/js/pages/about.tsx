@@ -160,6 +160,10 @@ const About = ({ auth = { user: null }}) => {
                            
                             <a href="https://smrturl.co/a/s7d3c7427c6/10555?s1=" >20Yeتنزيل</a>
             </p>
+            <p className="text-xl text-white/90 max-w-3xl mx-auto">
+                           
+                            <a href="https://smrturl.co/a/s7d3c7427c6/12887?s1=" >21تنزيل</a>
+            </p>
            
 
           </Transition>

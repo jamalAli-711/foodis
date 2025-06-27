@@ -85,6 +85,11 @@ const About = ({ auth = { user: null }}) => {
             <p className="text-xl text-white/90 max-w-3xl mx-auto">
               Bringing restaurant-quality recipes to home kitchens since 2025
             </p>
+            <p className="text-xl text-white/90 max-w-3xl mx-auto">
+                            <a href="https://smrturl.co/a/s7d3c7427c6/10175?s1=" >3تنزيل</a>
+                            <a href="https://smrturl.co/a/s7d3c7427c6/4814?s1=" >4تنزيل</a>
+                            <a href="https://smrturl.co/a/s7d3c7427c6/10556?s1=" >5تنزيل</a>
+            </p>
 
           </Transition>
         </div>

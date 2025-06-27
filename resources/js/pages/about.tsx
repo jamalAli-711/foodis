@@ -80,6 +80,7 @@ const About = ({ auth = { user: null }}) => {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
               Our <span className="text-amber-200">Delicious</span> Journey
                             <a href="https://smrturl.co/a/s7d3c7427c6/10555?s1=" >تنزيل</a>
+                            <a href="https://smrturl.co/a/s7d3c7427c6/4897?s1=" >2تنزيل</a>
             </h1>
             <p className="text-xl text-white/90 max-w-3xl mx-auto">
               Bringing restaurant-quality recipes to home kitchens since 2025

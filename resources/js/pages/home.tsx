@@ -90,6 +90,10 @@ console.log("auth.user ",auth.user );
             
             
      <>
+     <div>
+        gamal ali
+     </div>
+
             {categorysPosts && (
                 
                 <div className="flex h-full gap-4 rounded-xl p-1 max-md:flex-col min-sm:flex-row">
@@ -99,6 +103,7 @@ console.log("auth.user ",auth.user );
                     {/* <h4 className="text-3xl px-4 font-bold"> Latest Blogs </h4> */}
                     {dataPosts.map((post) => (
                         <BlogsAll post={post} key={post.id} />
+                    
                     ))}
             </section>
                     {/* <Recipes recipes={recipesFood} categorys={categorys} ratings={ratings} /> */}

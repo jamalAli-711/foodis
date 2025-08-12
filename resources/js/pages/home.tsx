@@ -90,9 +90,7 @@ console.log("auth.user ",auth.user );
             
             
      <>
-     <div>
-        gamal ali
-     </div>
+   
 
             {categorysPosts && (
                 

@@ -29,7 +29,7 @@ Route::get('/{post:slug}', [PostController::class, 'show'])->name('blogs.show');
 Route::get('/categories',[CategoryController::class,'index'])->name('categories');
 
 
-Route::get('getcategories', function () {
+Route::get('/getcategories', function () {
           $categories = Category::all();
    return response()->json($categories, 200);
 })->name('categoriesget');

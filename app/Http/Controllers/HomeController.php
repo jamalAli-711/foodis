@@ -27,7 +27,8 @@ class HomeController extends Controller
        $tags= Tag::with(['recipes'])
             ->latest()
             ->paginate(100);
-        
+            $categories = CategoryPost::all();
+   return response()->json($categories, 200);
 
     return Inertia::render('home', [
     'recipes' =>$recipes,

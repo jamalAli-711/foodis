@@ -29,7 +29,12 @@ Route::get('/{post:slug}', [PostController::class, 'show'])->name('blogs.show');
 Route::get('/categories',[CategoryController::class,'index'])->name('categories');
 
 
-
+Route::get('get-categories', function () {
+          $categories = Category::all();
+dd($categories);
+        // ثم تمريرها إلى العرض
+        return response($categories, 200);
+})->name('categories');
 Route::middleware(['auth', 'verified'])->group(function () {
 });
 Route::get('dashboard', function () {
